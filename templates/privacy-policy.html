@@ -13,17 +13,17 @@
     <header>
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <span class="logo-easy">Easy</span> <span class="logo-ai">AI</span> <span class="logo-labs">Labs</span>
                 </a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/solutions">Solutions</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-btn">
@@ -42,6 +42,11 @@
             </div>
         </div>
     </section>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / <span>Privacy Policy</span>
+    </div>
 
     <!-- Privacy Policy Content Section -->
     <section class="legal-content">
@@ -328,19 +333,19 @@
                 <div class="footer-links">
                     <h3>Solutions</h3>
                     <ul>
-                        <li><a href="solutions.html#conversational-ai">Conversational AI</a></li>
-                        <li><a href="solutions.html#voice-bots">Voice Bots</a></li>
-                        <li><a href="solutions.html#virtual-agents">Virtual Agents</a></li>
-                        <li><a href="solutions.html#dialogflow-cx">Dialogflow CX</a></li>
+                        <li><a href="/solutions#conversational-ai">Conversational AI</a></li>
+                        <li><a href="/solutions#voice-bots">Voice Bots</a></li>
+                        <li><a href="/solutions#virtual-agents">Virtual Agents</a></li>
+                        <li><a href="/solutions#dialogflow-cx">Dialogflow CX</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html#team">Our Team</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#team">Our Team</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/about#partners">Partners</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -355,96 +360,13 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Easy AI Labs. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        // Smooth scrolling for table of contents
-        document.addEventListener('DOMContentLoaded', function() {
-            const tocLinks = document.querySelectorAll('.legal-toc a');
-            
-            tocLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const offsetTop = targetElement.offsetTop - 100;
-                        
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Update active state in TOC
-                        tocLinks.forEach(link => link.classList.remove('active'));
-                        this.classList.add('active');
-                    }
-                });
-            });
-            
-            // Highlight active section on scroll
-            const sections = document.querySelectorAll('.policy-section');
-            
-            function highlightTOC() {
-                let currentSectionId = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 120;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSectionId = '#' + section.getAttribute('id');
-                    }
-                });
-                
-                if (currentSectionId) {
-                    tocLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === currentSectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            }
-            
-            window.addEventListener('scroll', highlightTOC);
-            
-            // Make TOC sticky on scroll
-            const sidebar = document.querySelector('.sidebar-container');
-            const legal = document.querySelector('.legal-content');
-            
-            function stickySidebar() {
-                if (window.innerWidth >= 992) {
-                    const legalRect = legal.getBoundingClientRect();
-                    const sidebarHeight = sidebar.offsetHeight;
-                    
-                    if (legalRect.top <= 100 && legalRect.bottom >= sidebarHeight + 100) {
-                        sidebar.style.position = 'fixed';
-                        sidebar.style.top = '100px';
-                    } else if (legalRect.bottom < sidebarHeight + 100) {
-                        sidebar.style.position = 'absolute';
-                        sidebar.style.top = (legalRect.height - sidebarHeight) + 'px';
-                    } else {
-                        sidebar.style.position = 'absolute';
-                        sidebar.style.top = '0';
-                    }
-                } else {
-                    sidebar.style.position = 'static';
-                }
-            }
-            
-            window.addEventListener('scroll', stickySidebar);
-            window.addEventListener('resize', stickySidebar);
-            stickySidebar();
-        });
-    </script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
